@@ -9,7 +9,7 @@ import userRouter from "./routes/user.route.js"
 import interviewRouter from "./routes/interview.route.js"
 import paymentRouter from "./routes/payment.route.js"
 
-// const app = express()
+const app = express();
 
 app.use(
   cors({
@@ -31,12 +31,16 @@ app.use("/api/user", userRouter)
 app.use("/api/interview" , interviewRouter)
 app.use("/api/payment" , paymentRouter)
 
-// const PORT = process.env.PORT || 6000
+const PORT = process.env.PORT || 6000
 // app.listen(PORT , ()=>{
 //     console.log(`Server running on port ${PORT}`)
 //     connectDb()
 // })
 
 connectDb();
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
 
 export default app;
